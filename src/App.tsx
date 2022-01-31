@@ -41,7 +41,7 @@ const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
 };
 
 const candyMachineId = getCandyMachineId();
-const network = 'mainnet-beta';
+const network = 'mainnet-beta' as WalletAdapterNetwork;
 const rpcHost = 'https://ssc-dao.genesysgo.net/';
 const connection = new anchor.web3.Connection(
     rpcHost ? rpcHost : anchor.web3.clusterApiUrl("devnet")
