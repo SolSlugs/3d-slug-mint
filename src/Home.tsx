@@ -205,7 +205,7 @@ const Home = (props: HomeProps) => {
                                     </Item>
 
                                     <Item>
-                                        Mint Cost: Free + Transaction Fees (~0.02 SOL)
+                                        Mint Cost: Free + Transaction Fees (~0.011 SOL)
                                     </Item>
                                 </div>
 
@@ -251,7 +251,7 @@ const Home = (props: HomeProps) => {
                                     </Item>
 
                                     <Item>
-                                        Mint Cost: Free + Transaction Fees (~0.02 SOL)
+                                        Mint Cost: Free + Transaction Fees (~0.011 SOL)
                                     </Item>
                                 </div>
 
