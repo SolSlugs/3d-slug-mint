@@ -6,18 +6,15 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletDialogButton, WalletDisconnectButton, WalletMultiButton } from "@solana/wallet-adapter-material-ui";
+import { WalletDialogButton, WalletDisconnectButton, } from "@solana/wallet-adapter-material-ui";
 import {
     awaitTransactionSignatureConfirmation,
     CandyMachineAccount,
-    CANDY_MACHINE_PROGRAM,
     getCandyMachineState,
     mintOneToken,
 } from "./candy-machine";
 import { AlertState } from "./utils";
-import { Header } from "./Header";
 import { MintButton } from "./MintButton";
-import { GatewayProvider } from "@civic/solana-gateway-react";
 import Logo from "./Logo.png";
 
 const ConnectButton = styled(WalletDialogButton)`
@@ -31,8 +28,6 @@ const DisconnectButton = styled(WalletDisconnectButton)`
     color: #0d0d0d !important;
     font-size: 20px !important;
 `;
-
-const MintContainer = styled.div``; // add your owns styles here
 
 const Item = (props: any) => {
   return (
@@ -69,7 +64,6 @@ const Home = (props: HomeProps) => {
         severity: undefined,
     });
 
-    const rpcUrl = props.rpcHost;
     const wallet = useWallet();
 
     const [paymentTokenExists, setPaymentTokenExists] = useState(false);
@@ -115,7 +109,7 @@ const Home = (props: HomeProps) => {
                 console.log(e);
             }
         }
-    }, [anchorWallet, props.candyMachineId, props.connection]);
+    }, [anchorWallet, props.candyMachineId, props.connection, wallet.publicKey, props.tokenMintPublicKey]);
 
     const onMint = async () => {
         try {
