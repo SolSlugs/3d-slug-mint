@@ -48,7 +48,7 @@ const connection = new anchor.web3.Connection(
 );
 
 const tokenMintPublicKey = new PublicKey(
-    'gen2VK2sZstCfzsbN7rGiMCoe4WuMS9JwLiJNTn4cEy'
+    '3DSLGYdPHcrhcuYNj4Gn6bwQYA5dyEmXjeQiY2vJPX6y',
 );
 
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
