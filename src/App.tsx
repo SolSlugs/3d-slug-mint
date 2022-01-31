@@ -30,7 +30,7 @@ const theme = createTheme({
 const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
     try {
         const candyMachineId = new anchor.web3.PublicKey(
-            process.env.REACT_APP_CANDY_MACHINE_ID!
+            '8tQJA7cqHaVCjyA9tK2LhfhhUqxxAWD4fF3LFfSxHC8i',
         );
 
         return candyMachineId;
@@ -41,8 +41,8 @@ const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
 };
 
 const candyMachineId = getCandyMachineId();
-const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
-const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+const network = 'mainnet-beta';
+const rpcHost = 'https://ssc-dao.genesysgo.net/';
 const connection = new anchor.web3.Connection(
     rpcHost ? rpcHost : anchor.web3.clusterApiUrl("devnet")
 );
