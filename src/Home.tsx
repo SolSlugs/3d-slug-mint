@@ -101,6 +101,8 @@ const Home = (props: HomeProps) => {
                     wallet.publicKey,
                 );
 
+                console.log(JSON.stringify(cndy.state, null, 4));
+
                 setCandyMachine(cndy);
                 setPaymentTokenExists(cndy.state.paymentTokenExists);
                 setPaymentTokenCount(cndy.state.paymentTokenCount);
