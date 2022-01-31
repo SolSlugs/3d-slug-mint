@@ -30,7 +30,7 @@ const theme = createTheme({
 const getCandyMachineId = (): anchor.web3.PublicKey | undefined => {
     try {
         const candyMachineId = new anchor.web3.PublicKey(
-            '8tQJA7cqHaVCjyA9tK2LhfhhUqxxAWD4fF3LFfSxHC8i',
+            'GZGMjeBjU997EfAPJhRsU96vWkaYvu4B5g9bdUkfSiaU',
         );
 
         return candyMachineId;
