@@ -198,86 +198,41 @@ const Home = (props: HomeProps) => {
             >
                 {wallet.connected && wallet.publicKey && (
                     <>
-                                                
-                        {paymentTokenExists && (
-                            <>
-                                <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', fontSize: '28px' }}>
-                                    <Item>
-                                        Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}
-                                    </Item>
-
-                                    <Item>
-                                        Mint Cost: Free + Transaction Fees (~0.011 SOL)
-                                    </Item>
-                                </div>
-
-                                <div style={{ flexDirection: 'column', display: 'flex', alignItems: 'center', marginTop: '40px' }}>
-                                    {paymentTokenCount === 0 && (
-                                        <>
-                                            <Item style={{ fontSize: '30px' }}>
-                                                Congratulations, you have claimed all your 3D slugs!
-                                            </Item>
-
-                                            <DisconnectButton
-                                                style={{ marginTop: '30px' }}
-                                                className="button is-primary is-normal"
-                                            >
-                                                Disconnect Wallet
-                                            </DisconnectButton>
-                                        </>
-                                    )}
-
-                                    {paymentTokenCount > 0 && (
-                                        <>
-                                            <Item style={{ fontSize: '30px', marginBottom: '30px' }}>
-                                                {`You can claim ${paymentTokenCount} 3D slug${paymentTokenCount === 1 ? '' : 's'}!`}
-                                            </Item>
-
-                                            <MintButton
-                                                onMint={onMint}
-                                                candyMachine={candyMachine}
-                                                isMinting={isUserMinting}
-                                            />
-                                        </>
-                                    )}
-                                </div>
-                            </>
-                        )}
-
-                        {candyMachine && !paymentTokenExists && (
-                            <>
-                                <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', fontSize: '28px' }}>
-                                    <Item>
-
-                                        Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}
-                                    </Item>
-
-                                    <Item>
-                                        Mint Cost: Free + Transaction Fees (~0.011 SOL)
-                                    </Item>
-                                </div>
-
-                                <Item style={{ marginTop: '60px', width: '600px' }}>
-                                    You are not eligible for any 3D Slugs. Please verify you have the correct wallet address connected.
+                        <>
+                            <div style={{ display: 'flex', width: '90%', justifyContent: 'space-between', fontSize: '28px' }}>
+                                <Item>
+                                    Wallet: {shortenAddress(wallet.publicKey.toBase58() || "")}
                                 </Item>
 
-                                <Item style={{ marginTop: '40px', width: '600px' }}>
-                                    3D slugs were rewarded to users who burnt one or more slugs, or who participated in the rugged Dogs on the Block giveaway.
+                                <Item>
+                                    Mint Cost: 0.11 SOL
                                 </Item>
+                            </div>
 
-                                <DisconnectButton
-                                    style={{ marginTop: '30px' }}
-                                    className="button is-primary is-normal"
-                                    color="primary"
-                                >
-                                    Disconnect Wallet
-                                </DisconnectButton>
+                            <div style={{ flexDirection: 'column', display: 'flex', alignItems: 'center', marginTop: '40px' }}>
+                                {paymentTokenCount > 0 && (
+                                    <>
+                                        <Item style={{ fontSize: '30px', marginBottom: '30px' }}>
+                                            {`You can claim ${paymentTokenCount} 3D slug${paymentTokenCount === 1 ? '' : 's'} for free!`}
+                                        </Item>
+                                    </>
+                                )}
 
-                                <a href="https://solslugs.com/#/3dslugs" style={{ color: '#92e643', marginTop: '30px' }}>
-                                    Verify Eligibility
-                                </a>
-                            </>
-                        )}
+                                {candyMachine && (
+                                    <>
+                                        <Item style={{ fontSize: '30px', marginBottom: '30px' }}>
+                                            Minted: {`${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}
+                                        </Item>
+
+                                        <MintButton
+                                            onMint={onMint}
+                                            candyMachine={candyMachine}
+                                            isMinting={isUserMinting}
+                                        />
+                                    </>
+                                )}
+                            </div>
+                        </>
                     </>
                 )}
 
