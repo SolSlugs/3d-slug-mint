@@ -6,7 +6,7 @@ import { Snackbar } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 import { PublicKey } from "@solana/web3.js";
 import { useWallet } from "@solana/wallet-adapter-react";
-import { WalletDialogButton, WalletDisconnectButton, } from "@solana/wallet-adapter-material-ui";
+import { WalletDialogButton } from "@solana/wallet-adapter-material-ui";
 import {
     awaitTransactionSignatureConfirmation,
     CandyMachineAccount,
@@ -21,12 +21,6 @@ const ConnectButton = styled(WalletDialogButton)`
     background-color: #92e643 !important;
     color: #0d0d0d !important;
     font-size: 30px !important;
-`;
-
-const DisconnectButton = styled(WalletDisconnectButton)`
-    background-color: #92e643 !important;
-    color: #0d0d0d !important;
-    font-size: 20px !important;
 `;
 
 const Item = (props: any) => {
@@ -66,7 +60,6 @@ const Home = (props: HomeProps) => {
 
     const wallet = useWallet();
 
-    const [paymentTokenExists, setPaymentTokenExists] = useState(false);
     const [paymentTokenCount, setPaymentTokenCount] = useState(0);
 
     const anchorWallet = useMemo(() => {
@@ -104,7 +97,6 @@ const Home = (props: HomeProps) => {
                 console.log(JSON.stringify(cndy.state, null, 4));
 
                 setCandyMachine(cndy);
-                setPaymentTokenExists(cndy.state.paymentTokenExists);
                 setPaymentTokenCount(cndy.state.paymentTokenCount);
             } catch (e) {
                 console.log("There was a problem fetching Candy Machine state");
